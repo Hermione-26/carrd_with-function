@@ -1,0 +1,264 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Full viewport height */
+    margin: 0;    /* Remove default margins */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #6E436C 25%, #2A4584 75%);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-size: cover; /* Ensure the background covers the entire screen */
+    background-attachment: fixed; /* Keep the background fixed during scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure footer stays at the bottom */
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 23px;
+    height: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.hamburger .bar {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+.hamburger:hover .bar {
+    background-color: #ffffff;
+}
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    background: linear-gradient(30deg, rgba(121, 82, 119, 0.975) 30%, #355192 85%);
+    color: #fff; /* White text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically in the sidebar */
+    align-items: center; /* Center items horizontally in the sidebar */
+    padding: 20px; /* Padding around the content */
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); /* Light shadow on the right side */
+    transform: translateX(-100%); /* Initially hide the sidebar off-screen */
+    transition: transform 0.3s ease; /* Smooth transition for sliding effect */
+    z-index: 9999;
+}
+
+/* Sidebar when active (when the hamburger menu is clicked) */
+.sidebar.active {
+    transform: translateX(0); /* Slide the sidebar in */
+}
+
+/* Sidebar Rows (2 rows with 3 boxes per row) */
+.sidebar-row {
+    display: flex;
+    justify-content: center; /* Center the rows horizontally */
+    margin-bottom: 0px; /* Space between rows */
+    gap: 0px; /* Space between the boxes */
+    width: 100%; /* Make the row take up 80% of the sidebar width */
+}
+
+/* Sidebar Box */
+.sidebar-box {
+    padding: 100px; /* Increased padding */
+    width: 30%; /* Each box will take up 30% of the row's width */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border around each box */
+}
+
+/* Links inside the boxes */
+.sidebar-box a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text color */
+    display: block;
+}
+.sidebar-box .title {
+    font-size: 20px; /* Title size */
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+/* Description Styling */
+.sidebar-box .description {
+    font-size: 14px; /* Smaller text for the description */
+    opacity: 0.8; /* Slight transparency for the description */
+}
+/* Hover effect for sidebar boxes */
+.sidebar-box:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Darker background on hover */
+}
+
+/* Sidebar Box Link Hover */
+.sidebar-box a:hover {
+    color: #fff; /* Change text color on hover */
+}
+
+/* Main content styling - remains the same */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .container img {
+    max-width: 100%; /* Make image responsive */
+    height: 103%;
+    width: 100%; /* Set width of the image */
+    margin-bottom: 20px; /* Space between image and text */
+    transform: translateY(-40%);
+    margin-right: 50px;
+    
+  }  
+  .centered-text {
+    display: flex;
+    flex-direction: column; /* Stack title and subtitle vertically */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Title Styling (Carrd) */
+  .centered-text .title {
+    font-size: 70px;
+    color: white;
+    margin-bottom: 10px; /* Space between title and subtitle */
+    transform: translateY(-95%); /* Move the title upward */
+    font-family: Arial;
+    font-weight: bold;
+  }
+  
+  /* Subtitle Styling (Simple, free, etc.) */
+  .centered-text .subtitle {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 50px; /* Add some space between subtitle and button */
+    transform: translateY(-260%); /* Move the subtitle upward */
+    opacity: 0.8;
+  }
+  .centered-button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center; /* Center buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    gap: 5px; /* Space between buttons */
+    text-decoration: none;
+  }
+  /* Button styling */
+  .centered-button {
+    background-color: #24b6a0; /* Button color */
+    color: white;
+    padding: 17px 60px;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: translateY(-100%);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  /* Button hover effect */
+  .centered-button:hover {
+    background-color: #26c2ab;
+  }
+  .transparent-button {
+    background-color: transparent; /* Transparent background */
+    color: white; /* White text */
+    border: 2px solid #d6dbdf; /* White border */
+    padding: 15px 127px;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    transform: translateY(-50%);
+    text-decoration: none;
+  }
+  
+  /* Transparent button hover effect */
+  .transparent-button:hover {
+    border-color: #ebedef; /* Change border color on hover */
+    color: #ebedef; /* Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Darker shade on hover */
+  }
+  
+/* Footer Styling */
+footer {
+    color: #d1d1d1; /* Light text color */
+    padding: 40px 0; /* Space around the footer */
+    text-align: center; /* Center the text */
+    font-size: 14px; /* Smaller text */
+}
+
+.footer-content {
+    max-width: 1200px; /* Maximum width for the footer */
+    margin: 0 auto; /* Center the content */
+    padding: 0 20px; /* Add some padding */
+}
+
+.footer-links ul {
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal links */
+    justify-content: center; /* Center the links */
+    gap: 30px; /* Space between the links */
+}
+
+.footer-links a {
+    text-decoration: none; /* Remove underline */
+    color: #d1d1d1; /* Light gray color */
+    font-size: 14px; /* Small text */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect */
+.footer-links a:hover {
+    color: #ffffff; /* Change color on hover */
+}
+
+/* Footer Text */
+.footer-text {
+    margin-top: 20px; /* Space between the links and text */
+    font-size: 12px; /* Smaller text for the copyright notice */
+    color: #b3b3b3; /* Slightly lighter text */
+}
